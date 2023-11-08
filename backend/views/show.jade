@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= title
+  ul
+    each key,val in params
+      li= val + ': ' + key
