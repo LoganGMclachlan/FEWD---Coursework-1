@@ -37,7 +37,7 @@ body {
 }
 
 .container{
-  padding:5px;
+  padding:8px;
   margin:0px;
   border:2px solid black;
   border-top: none;
@@ -48,4 +48,5 @@ body {
 .scrollable{
   overflow: scroll;
   overflow-x: hidden;
+  max-height: 385px;
 }

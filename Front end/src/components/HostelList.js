@@ -1,26 +1,14 @@
+import HostelSnippet from "./HostelSnippet";
 
 export default function HostelList({hostels}){
+    return(
     <div style={{"width":"25%","height":"490px"}} className="container">
-            <h1>Search bar</h1>
-            <div className="scrollable">
-                <div>
-                    <h2>hostel</h2>
-                    <span>
-                        <p>Starts: 5 | Has Cafe</p>
-                    </span>
-                </div>
-                <div>
-                    <h2>hostel</h2>
-                    <span>
-                        <p>Starts: 5 | Has Cafe</p>
-                    </span>
-                </div>
-                <div>
-                    <h2>hostel</h2>
-                    <span>
-                        <p>Starts: 5 | Has Cafe</p>
-                    </span>
-                </div>
-            </div>
+        <h1>Search bar</h1>
+        <div className="scrollable">
+            {hostels.map(hostel => 
+                <HostelSnippet hostel={hostel}/>
+            )}
         </div>
+    </div>
+    )
 }
