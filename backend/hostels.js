@@ -1,4 +1,4 @@
-export default hostels =[
+export default hostels = [
     {
         "id": "1",
         "name": "Torridon Youth Hostel", 
