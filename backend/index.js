@@ -4,8 +4,8 @@ const cors = require("cors")
 const app = express()
 app.use(cors())
 
-app.get('/hostels', (req, res) => {
-    return res.json(hostels)
+app.get('/hostels', () => {
+    return hostels.json()
 })
 
 app.listen(3001, () => {
