@@ -26,6 +26,7 @@ export default function Search({hostels,setFilterd}){
             )
         }
 
+        // filters by name
         return(item.name.toLowerCase().includes(searchField.toLowerCase()))
     })
 
@@ -38,20 +39,23 @@ export default function Search({hostels,setFilterd}){
             <input
                 placeholder="Search..."
                 onChange={e => setSearchField(e.target.value)}
+                className="search-bar"
             />
-            <br/>
-            <label>Has Cafe?:</label>
-            <input
-                type="checkbox"
-                checked={hasCafe}
-                onChange={() => setHasCafe(!hasCafe)}
-            />
-            <label>Rating:</label>
-            <input
-                type="number"
-                value={rating}
-                onChange={e => handleRatingChange(e.target.value)}
-            />
+            <div className="filters">
+                <label>Has Cafe?:</label>
+                <input
+                    type="checkbox"
+                    checked={hasCafe}
+                    onChange={() => setHasCafe(!hasCafe)}
+                />
+                <label style={{"marginLeft":"15px"}}>Rating:</label>
+                <input
+                    type="number"
+                    value={rating}
+                    onChange={e => handleRatingChange(e.target.value)}
+                    style={{"width":"10%","marginLeft":"5px"}}
+                />
+            </div>
         </div>
     )
 }

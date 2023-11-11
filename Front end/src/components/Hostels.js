@@ -22,6 +22,8 @@ export default function Hostels(){
                     </div>
                     <div className="container">
                     </div>
+                    <div className="container">
+                    </div>
                 </div>
             </>
 

@@ -4,5 +4,4 @@ export function getAvgRating(ratings){
     return Math.round(total / ratings.length)
 }
 
-
 export const createArray = length => [...Array(length)];

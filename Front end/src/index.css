@@ -48,5 +48,18 @@ body {
 .scrollable{
   overflow: scroll;
   overflow-x: hidden;
-  max-height: 385px;
+  max-height: 404px;
+}
+
+.search-bar{
+  width:93%;
+  padding:9px;
+  border-radius: 15px;
+  font-size: 1.4em;
+}
+
+.filters{
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-left:5px;
 }

@@ -6,7 +6,7 @@ export default function HostelList({hostels}){
     const [filtered,setFiltered] = useState(hostels)
 
     return(
-    <div style={{"width":"25%","height":"490px"}} className="container">
+    <div style={{"width":"25%","height":"484px"}} className="container">
         
         <Search hostels={hostels} setFilterd={setFiltered}/>
 

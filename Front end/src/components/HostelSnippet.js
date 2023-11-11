@@ -6,6 +6,7 @@ export default function HostelSnippet({hostel}){
 
     return(
         <div>
+            <hr/>
             <h2>{hostel.name}</h2>
 
             {hostel.ratings.length > 0 
@@ -23,7 +24,6 @@ export default function HostelSnippet({hostel}){
             ?<label> | Has Cafe</label>
             :<label> | No Cafe</label>
             }
-            <hr/>
         </div>
     )
 }
