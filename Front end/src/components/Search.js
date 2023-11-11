@@ -12,10 +12,15 @@ export default function Search({hostels,setFilterd}){
     }
 
     const filtered = hostels.filter(item => {
-        return (item.name.toLowerCase().includes(searchField.toLowerCase()) &&
+        // filters based on cafe & rating if search bar is empty
+        if (searchField === ""){
+            return (
                 item.cafe === hasCafe &&
                 Math.round(getAvgRating(item.ratings)) == rating
-                )
+            )
+        }
+
+        return(item.name.toLowerCase().includes(searchField.toLowerCase()))
     })
 
     useEffect(() => {
