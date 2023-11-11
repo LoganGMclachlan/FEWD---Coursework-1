@@ -14,17 +14,22 @@ export default function HostelSnippet({hostel}){
     return(
         <div>
             <h2>{hostel.name}</h2>
-            {createArray(5).map((n, i) => (
-                <FaStar 
-                color={avgRating > i ? "yellow" : "grey"}
-                />
-            ))}
 
+            {hostel.ratings.length > 0 
+            ?<>
+                {createArray(5).map((n, i) => (
+                    <FaStar 
+                    color={avgRating > i ? "yellow" : "grey"}
+                    />
+                ))}
+            </>
+            :<label>No Ratings</label>
+            }
+            
             {hostel.cafe
             ?<label> | Has Cafe</label>
             :<label> | No Cafe</label>
             }
-
             <hr/>
         </div>
     )

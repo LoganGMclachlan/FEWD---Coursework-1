@@ -1,11 +1,17 @@
 import HostelSnippet from "./HostelSnippet";
+import { useState } from "react";
+import Search from "./Search";
 
 export default function HostelList({hostels}){
+    const [filtered,setFiltered] = useState(hostels)
+
     return(
     <div style={{"width":"25%","height":"490px"}} className="container">
-        <h1>Search bar</h1>
+        
+        <Search hostels={hostels} setFilterd={setFiltered}/>
+
         <div className="scrollable">
-            {hostels.map(hostel => 
+            {filtered.map(hostel => 
                 <HostelSnippet hostel={hostel}/>
             )}
         </div>
