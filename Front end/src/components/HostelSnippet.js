@@ -1,15 +1,8 @@
 import { FaStar } from "react-icons/fa";
+import { getAvgRating, createArray } from "../utils"
 
 export default function HostelSnippet({hostel}){
     const avgRating = getAvgRating(hostel.ratings)
-
-    function getAvgRating(ratings){
-        let total = 0
-        ratings.map(rating => total += rating)
-        return Math.round(total / ratings.length)
-    }
-
-    const createArray = length => [...Array(length)];
 
     return(
         <div>
