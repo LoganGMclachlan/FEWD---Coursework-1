@@ -6,33 +6,37 @@ export default function Search({hostels,setFilterd}){
     const [hasCafe,setHasCafe] = useState(true)
     const [rating,setRating] = useState("")
 
+    function filter(){
+        const filtered = hostels.filter(item => {   
+            // filters based on cafe & rating if search bar is empty
+            if (searchField === ""){
+                // ignore rating in filter if empty
+                if(rating == ""){
+                    return (
+                        item.cafe === hasCafe
+                    )
+                }
+                return (
+                    item.cafe === hasCafe &&
+                    Math.round(getAvgRating(item.ratings)) == rating
+                )
+            }
+    
+            // filters by name
+            return(item.name.toLowerCase().includes(searchField.toLowerCase()))
+        })
+
+        setFilterd(filtered)
+    }
+
     function handleRatingChange(newRating){
         if((newRating > 5 || newRating < 1) && newRating != ""){ return }
         setRating(newRating)
     }
 
-    const filtered = hostels.filter(item => {   
-        // filters based on cafe & rating if search bar is empty
-        if (searchField === ""){
-            // ignore rating in filter if empty
-            if(rating == ""){
-                return (
-                    item.cafe === hasCafe
-                )
-            }
-            return (
-                item.cafe === hasCafe &&
-                Math.round(getAvgRating(item.ratings)) == rating
-            )
-        }
-
-        // filters by name
-        return(item.name.toLowerCase().includes(searchField.toLowerCase()))
-    })
-
     useEffect(() => {
-        setFilterd(filtered)
-    }, [])
+        filter()    
+    }, [searchField,hasCafe,rating])
 
     return(
         <div>
