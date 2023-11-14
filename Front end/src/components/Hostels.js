@@ -1,21 +1,21 @@
+import HostelDetails from "./HostelDetails"
 import HostelList from "./HostelList"
 import useFetchHostels from "./useFetchHostels"
+import { useState } from "react"
 
 export default function Hostels(){
     const {status,hostels} = useFetchHostels()
+    const [selectedHostel, setSelectedHostel] = useState(null)
 
     return(
         <div className="main">
             {status === "fetched"
             ?<>
-                <HostelList hostels={hostels}/>
+                <HostelList hostels={hostels} selectHostel={setSelectedHostel}/>
 
-                <div style={{"width":"40%"}}>
-                    <div className="container">
-                    </div>
-                    <div className="container">
-                    </div>
-                </div>
+                {selectedHostel &&
+                <>
+                    <HostelDetails hostel={selectedHostel}/>
                 
                 <div style={{"width":"35%"}}>
                     <div className="container">
@@ -25,6 +25,9 @@ export default function Hostels(){
                     <div className="container">
                     </div>
                 </div>
+                </>
+                }
+                
             </>
 
             :<div className="container">

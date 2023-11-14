@@ -2,7 +2,7 @@ import HostelSnippet from "./HostelSnippet";
 import { useState } from "react";
 import Search from "./Search";
 
-export default function HostelList({hostels}){
+export default function HostelList({hostels, selectHostel}){
     const [filtered,setFiltered] = useState(hostels)
 
     return(
@@ -12,7 +12,9 @@ export default function HostelList({hostels}){
 
         <div className="scrollable">
             {filtered.map(hostel => 
-                <HostelSnippet hostel={hostel}/>
+                <div onClick={() => selectHostel(hostel)}>
+                    <HostelSnippet hostel={hostel}/>
+                </div>
             )}
         </div>
     </div>
