@@ -12,7 +12,7 @@ export default function HostelList({hostels, selectHostel}){
 
         <div className="scrollable">
             {filtered.map(hostel => 
-                <div onClick={() => selectHostel(hostel)}>
+                <div onClick={() => selectHostel(hostel)} key={hostel.id}>
                     <HostelSnippet hostel={hostel}/>
                 </div>
             )}

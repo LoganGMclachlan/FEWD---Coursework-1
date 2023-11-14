@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  height: 575px;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -66,5 +68,9 @@ body {
 
 .details{
   overflow-y: scroll;
-  max-height: 200px;
+  height: 220px;
+}
+
+.map{
+  height: 250px;
 }

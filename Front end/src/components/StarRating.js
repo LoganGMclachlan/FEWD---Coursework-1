@@ -10,6 +10,7 @@ export default function StarRating({ratings}){
             ?<>
                 {createArray(5).map((n, i) => (
                     <FaStar 
+                    key={i}
                     color={avgRating > i ? "orange" : "grey"}
                     />
                 ))}

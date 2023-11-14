@@ -32,7 +32,7 @@ export default function Search({hostels,setFilterd}){
 
     useEffect(() => {
         setFilterd(filtered)
-    }, [filtered])
+    }, [])
 
     return(
         <div>
