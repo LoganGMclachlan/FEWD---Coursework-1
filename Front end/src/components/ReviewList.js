@@ -13,7 +13,6 @@ export default function ReviewList({reviews}){
                 </div>
             )}
             </div>
-            
         </div>
     )
 }

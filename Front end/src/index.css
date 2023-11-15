@@ -100,3 +100,27 @@ body {
   overflow-y: scroll;
   max-height: 50px;
 }
+
+.review-input{
+  padding:3px;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-left:5px;
+  margin-bottom: 7px;
+  width:250px
+}
+
+.form-area{
+  height: 50px;
+  width:95%;
+  margin-bottom: 5px;
+}
+
+.btn{
+  padding: 4px;
+  border:2px solid black;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  padding-left:15px;
+  padding-right:15px
+}
