@@ -14,11 +14,11 @@ body {
   height: 65px;
   border-bottom: 4px solid black;
   display: flex;
-  gap:50px
+  gap:40px;
 }
 
 .nav-heading{
-  font-size: 3em;
+  font-size: 2.9em;
   margin-top: 0px;
   margin-left:15px;
 }
@@ -28,6 +28,7 @@ body {
   background-color: white;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 .nav-btn:hover{
   text-decoration: underline;
@@ -47,10 +48,14 @@ body {
   font-size: 1em;
 }
 
+.container h2{
+  margin:0px
+}
+
 .scrollable{
   overflow: scroll;
   overflow-x: hidden;
-  max-height: 404px;
+  max-height: 410px;
 }
 
 .search-bar{
@@ -73,4 +78,25 @@ body {
 
 .map{
   height: 250px;
+}
+
+.review-list{
+  overflow-y: scroll;
+  height: 230px;
+}
+
+.review{
+  margin-bottom: 10px;
+}
+
+.review h3{
+  margin:0px;
+}
+
+.review p{
+  margin:0px;
+  padding:5px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  max-height: 50px;
 }

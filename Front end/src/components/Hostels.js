@@ -1,5 +1,6 @@
 import HostelDetails from "./HostelDetails"
 import HostelList from "./HostelList"
+import HostelReviews from "./HostelReviews"
 import useFetchHostels from "./useFetchHostels"
 import { useState } from "react"
 
@@ -11,20 +12,17 @@ export default function Hostels(){
         <div className="main">
             {status === "fetched"
             ?<>
-                <HostelList hostels={hostels} selectHostel={setSelectedHostel}/>
+                <HostelList
+                    hostels={hostels}
+                    selectHostel={setSelectedHostel}/>
 
                 {selectedHostel &&
                 <>
                     <HostelDetails hostel={selectedHostel}/>
                 
-                <div style={{"width":"35%"}}>
-                    <div className="container">
-                    </div>
-                    <div className="container">
-                    </div>
-                    <div className="container">
-                    </div>
-                </div>
+                    <HostelReviews
+                        reviews={selectedHostel.reviews}
+                        setHostel={setSelectedHostel}/>
                 </>
                 }
                 

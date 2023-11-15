@@ -5,7 +5,7 @@ export default function HostelDetails({hostel}){
     return(
         <div style={{"width":"40%"}}>
             <div className="container details">
-                <h2 style={{"margin":"0px","marginBottom":"0px"}}>{hostel.name}</h2>
+                <h2>{hostel.name}</h2>
                 <>{hostel.description}</><br/><hr/>
 
                 <div style={{"fontSize":"0.8em"}}>
@@ -23,9 +23,8 @@ export default function HostelDetails({hostel}){
                     </>
                 </div>
             </div>
-
-            <div className="container">
-                <Map locations={[hostel.location]}/>
+            <div className="container map">
+                {false && <Map locations={[hostel.location]}/>}
             </div>
         </div>
     )
