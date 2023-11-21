@@ -15,6 +15,7 @@ body {
   border-bottom: 4px solid black;
   display: flex;
   gap:40px;
+  background-color: lightblue;
 }
 
 .nav-heading{
@@ -29,6 +30,7 @@ body {
   border: none;
   cursor: pointer;
   margin-top: 10px;
+  background-color: lightblue;
 }
 .nav-btn:hover{
   text-decoration: underline;
@@ -103,7 +105,11 @@ body {
 
 .review p{
   margin:0px;
-  padding:5px;
+  padding:4px;
+  background-color: rgb(245, 245, 245);
+  border: 1.5px solid lightgray;
+  border-radius: 5px;
+  width:95%
 }
 
 .review-input{

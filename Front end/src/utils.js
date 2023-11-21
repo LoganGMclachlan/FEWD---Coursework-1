@@ -13,12 +13,12 @@ export function getAvgRating(ratings){
 export const createArray = length => [...Array(length)]
 
 // function to auto recenter a map on position change
-export const RecenterAutomatically = ({lat,lng}) => {
+export const RecenterAutomatically = ({lat,long}) => {
     const map = useMap()
 
     useEffect(() => {
-        map.setView([lat, lng])
-    }, [lat, lng])
+        map.setView([lat, long])
+    }, [lat, long])
 
     return null
 }

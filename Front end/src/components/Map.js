@@ -47,7 +47,7 @@ export default function Map({hostels}){
                 </Marker>
             )}
             
-        <RecenterAutomatically lat={hostels[0].location.lat} lng={hostels[0].location.long} />
+            <RecenterAutomatically lat={hostels[0].location.lat} long={hostels[0].location.long} />
         </MapContainer>
     )
 }
