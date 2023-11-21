@@ -77,7 +77,8 @@ body {
 }
 
 .map{
-  height: 250px;
+  height: 270px;
+  margin: -8px;
 }
 
 .list-item{

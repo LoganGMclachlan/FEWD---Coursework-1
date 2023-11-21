@@ -23,8 +23,8 @@ export default function HostelDetails({hostel}){
                     </>
                 </div>
             </div>
-            <div className="container map">
-                {true && <Map locations={[hostel.location]}/>}
+            <div className="container">
+                <Map hostels={[hostel]}/>
             </div>
         </div>
     )
