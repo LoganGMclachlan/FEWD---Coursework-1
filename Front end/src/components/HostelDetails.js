@@ -24,7 +24,7 @@ export default function HostelDetails({hostel}){
                 </div>
             </div>
             <div className="container map">
-                {false && <Map locations={[hostel.location]}/>}
+                {true && <Map locations={[hostel.location]}/>}
             </div>
         </div>
     )

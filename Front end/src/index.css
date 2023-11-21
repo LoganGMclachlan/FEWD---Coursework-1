@@ -80,6 +80,13 @@ body {
   height: 250px;
 }
 
+.list-item{
+  background-color: white;
+  border:none;
+  width:100%;
+  text-align: left;
+}
+
 .review-list{
   overflow-y: scroll;
   height: 230px;
@@ -120,6 +127,7 @@ body {
   padding: 4px;
   border:2px solid black;
   border-radius: 5px;
+  cursor: pointer;
   background-color: whitesmoke;
   padding-left:15px;
   padding-right:15px

@@ -19,7 +19,7 @@ export default function Hostels(){
                 {selectedHostel &&
                 <>
                     <HostelDetails hostel={selectedHostel}/>
-                
+
                     <HostelReviews
                         reviews={selectedHostel.reviews}
                         setHostel={setSelectedHostel}/>
