@@ -104,9 +104,6 @@ body {
 .review p{
   margin:0px;
   padding:5px;
-  border: 1px solid black;
-  overflow-y: scroll;
-  max-height: 50px;
 }
 
 .review-input{

@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { useEffect, useState } from "react"
+import { RecenterAutomatically } from "../utils"
+
 import L, { Icon } from 'leaflet'
 delete L.Icon.Default.prototype.getIconUrl
 L.Icon.Default.mergeOptions({
@@ -14,9 +16,8 @@ export default function Map({hostels}){
         [hostels[0].location.lat,hostels[0].location.long]
     )
     useEffect(() => {
-        setPosition(
-            [hostels[0].location.lat,hostels[0].location.long])
-    }, [])
+        setPosition([hostels[0].location.lat,hostels[0].location.long])
+    }, [hostels])
 
     const icon = new Icon({
         iconUrl: "/markerIcon.svg",
@@ -24,7 +25,7 @@ export default function Map({hostels}){
     })
 
     return(
-        <MapContainer center={position} zoom={9}
+        <MapContainer center={position} zoom={8}
         scrollWheelZoom={true} className="map">
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -45,6 +46,8 @@ export default function Map({hostels}){
                     </Popup>
                 </Marker>
             )}
+            
+        <RecenterAutomatically lat={hostels[0].location.lat} lng={hostels[0].location.long} />
         </MapContainer>
     )
 }
