@@ -51,7 +51,8 @@ body {
 }
 
 .container h2{
-  margin:0px
+  margin:0px;
+  margin-bottom: 5px;
 }
 
 .scrollable{
@@ -92,7 +93,7 @@ body {
 
 .review-list{
   overflow-y: scroll;
-  height: 230px;
+  height: 200px;
 }
 
 .review{
@@ -118,13 +119,20 @@ body {
   border: 1px solid black;
   margin-left:5px;
   margin-bottom: 7px;
-  width:250px
+  width:74%
 }
 
 .form-area{
   height: 50px;
   width:95%;
   margin-bottom: 5px;
+  resize: none;
+}
+
+.form-num{
+  width:10%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .btn{

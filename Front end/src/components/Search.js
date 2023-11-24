@@ -57,7 +57,7 @@ export default function Search({hostels,setFilterd}){
                     type="number"
                     value={rating}
                     onChange={e => handleRatingChange(e.target.value)}
-                    style={{"width":"10%","marginLeft":"5px"}}
+                    className="form-num"
                 />
             </div>
         </div>
