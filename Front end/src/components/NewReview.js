@@ -1,14 +1,24 @@
 import { useState } from "react"
 
-
-export default function NewReview({setHostel}){
+export default function NewReview({selected}){
     const [author,setAuthor] = useState("")
     const [review,setReview] = useState("")
     const [rating,setRating] = useState("")
 
+    function handleRatingChange(newRating){
+        if((newRating > 5 || newRating < 1) && newRating != ""){ return }
+        setRating(newRating)
+    }
+
     // verifies input details
-    function HandleAddReview(){
-        if(author === ""){ setAuthor("Anonymous") }
+    function HandleAddReview(e){
+        e.preventDefault()
+        let reviewer = ""
+        if(author === ""){ 
+            reviewer = "Anonymous"
+        }else{
+            reviewer = author
+        }
         if(review === ""){
             alert("Please write your review before submiting.")
             return
@@ -18,16 +28,24 @@ export default function NewReview({setHostel}){
             return
         }
 
-        CreateReview({"reviewer":author,"review":review},rating)
+        CreateReview({"reviewer":reviewer,"review":review},Number(rating))
     }
 
     // adds new review to db, including the new rating
     async function CreateReview(review,rating){
-        
+        await fetch(`http://localhost:3001/newReview`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({"review":review,"rating":rating,"target":selected})
+        })
+        .then(
+            alert("Created your review successfuly! Refresh the page after a while to see it listed.")
+        )
+        .catch(err => {console.log(err)})
     }
 
     return(
-        <form className="container review" onSubmit={HandleAddReview}>
+        <form className="container review" onSubmit={e => HandleAddReview(e)}>
             <h2>Create Review</h2>
 
             <label>Author:</label>
@@ -47,7 +65,8 @@ export default function NewReview({setHostel}){
             <input
                 type="number"
                 className="form-num"
-                onChange={e => setRating(e.target.value)}
+                value={rating}
+                onChange={e => handleRatingChange(e.target.value)}
             />
 
             <button type="submit" className="btn">Submit</button>
