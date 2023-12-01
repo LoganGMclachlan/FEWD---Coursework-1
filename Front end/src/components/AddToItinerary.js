@@ -4,7 +4,7 @@ import { ItineraryContext } from "./ItineraryContext"
 
 export default function AddToItinerary({hostel}){
     const [nights,setNights] = useState("")
-    const {newItinerary, setNewItinerary} = useContext(ItineraryContext)
+    const {currentItinerary, setCurrentItinerary} = useContext(ItineraryContext)
 
     function AddHostel(e){
         if (nights < 1 || nights === ""){
@@ -12,13 +12,11 @@ export default function AddToItinerary({hostel}){
             return
         }
 
-        let temp = {...newItinerary}
+        let temp = {...currentItinerary}
         const shortHostel = {"id":hostel.id,"name":hostel.name,
             "location":[hostel.location.lat,hostel.location.long]}
         temp.hostels.push({"hostel":shortHostel,"NumOfNights":Number(nights)})
-        setNewItinerary(temp)
-
-        console.log(shortHostel)
+        setCurrentItinerary(temp)
         setNights("")
         e.preventDefault()
     }

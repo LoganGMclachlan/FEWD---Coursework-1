@@ -6,7 +6,7 @@ import { ItineraryContext } from "./components/ItineraryContext"
 
 function App() {
   const [tabSelected, setTabSelected] = useState("Hostels")// determines what tab to display
-  const [newItinerary, setNewItinerary] = useState({
+  const [currentItinerary, setCurrentItinerary] = useState({
     "title":"New Itinerary",
     "start_date":getTodaysDate(),
     "hostels":[]// will contain hostel title, location & No. of nights
@@ -22,7 +22,7 @@ function App() {
     <body>
       <Navbar tab={tabSelected} setTab={setTabSelected}/>
 
-      <ItineraryContext.Provider value={{newItinerary, setNewItinerary}}>
+      <ItineraryContext.Provider value={{currentItinerary, setCurrentItinerary}}>
         {tabSelected === "Hostels" &&
           <Hostels/>
         }

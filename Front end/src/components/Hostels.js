@@ -2,11 +2,15 @@ import HostelDetails from "./HostelDetails"
 import HostelList from "./HostelList"
 import HostelReviews from "./HostelReviews"
 import useFetchHostels from "./useFetchHostels"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Hostels(){
     const {status,hostels} = useFetchHostels()
-    const [selectedHostel, setSelectedHostel] = useState(null)
+    const [selectedHostel, setSelectedHostel] = useState()
+
+    useEffect(() => {
+        setSelectedHostel(hostels[0])
+    }, [status])
 
     return(
         <div className="main">
@@ -16,16 +20,11 @@ export default function Hostels(){
                     hostels={hostels}
                     selectHostel={setSelectedHostel}/>
 
-                {selectedHostel &&
-                <>
-                    <HostelDetails hostel={selectedHostel}/>
+                <HostelDetails hostel={selectedHostel}/>
 
-                    <HostelReviews
-                        reviews={selectedHostel.reviews}
-                        selected={selectedHostel}/>
-                </>
-                }
-                
+                <HostelReviews
+                    reviews={selectedHostel.reviews}
+                    selected={selectedHostel}/>
             </>
 
             :<div className="container">
