@@ -36,7 +36,7 @@ export default function NewReview({selected}){
         await fetch(`http://localhost:3001/newReview`,{
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({"review":review,"rating":rating,"target":selected})
+            body: JSON.stringify({"review":review,"rating":rating,"target":selected.id})
         })
         .then(
             alert("Created your review successfuly! Refresh the page after a while to see it listed.")

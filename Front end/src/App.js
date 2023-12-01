@@ -2,6 +2,7 @@ import { useState } from "react"
 import Navbar from "./components/Navbar"
 import Itineraries from "./components/Itineraries"
 import Hostels from "./components/Hostels"
+import { ItineraryContext } from "./components/ItineraryContext"
 
 function App() {
   const [tabSelected, setTabSelected] = useState("Hostels")// determines what tab to display
@@ -21,12 +22,14 @@ function App() {
     <body>
       <Navbar tab={tabSelected} setTab={setTabSelected}/>
 
-      {tabSelected === "Hostels" &&
-        <Hostels itinerary={newItinerary} setItinerary={setNewItinerary}/>
-      }
-      {tabSelected === "Itineraries" &&
-        <Itineraries/>
-      }
+      <ItineraryContext.Provider value={{newItinerary, setNewItinerary}}>
+        {tabSelected === "Hostels" &&
+          <Hostels/>
+        }
+        {tabSelected === "Itineraries" &&
+          <Itineraries/>
+        }
+      </ItineraryContext.Provider>
     </body>
   );
 }

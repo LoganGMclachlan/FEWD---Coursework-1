@@ -22,7 +22,7 @@ export default function Hostels(){
 
                     <HostelReviews
                         reviews={selectedHostel.reviews}
-                        selected={selectedHostel.id}/>
+                        selected={selectedHostel}/>
                 </>
                 }
                 

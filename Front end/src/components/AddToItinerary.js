@@ -1,27 +1,36 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { ItineraryContext } from "./ItineraryContext"
 
 
-export default function AddToItinerary({hostel,itinerary,setItinerary}){
+export default function AddToItinerary({hostel}){
     const [nights,setNights] = useState("")
+    const {newItinerary, setNewItinerary} = useContext(ItineraryContext)
 
     function AddHostel(e){
-        e.preventDefault()
         if (nights < 1 || nights === ""){
             alert("Enter a number of nights of 1 or above")
             return
         }
 
-        let newItinerary = {...itinerary}
-        newItinerary.hostels.push({"hostel":hostel.id,"NumOfNights":Number(nights)})
-        setItinerary(newItinerary)
+        let temp = {...newItinerary}
+        const shortHostel = {"id":hostel.id,"name":hostel.name,
+            "location":[hostel.location.lat,hostel.location.long]}
+        temp.hostels.push({"hostel":shortHostel,"NumOfNights":Number(nights)})
+        setNewItinerary(temp)
+
+        console.log(shortHostel)
         setNights("")
+        e.preventDefault()
     }
 
     return(
         <form onSubmit={e => AddHostel(e)} className="container spaced">
             <label>Add Hostel to Itinerary</label>
-            <input placeholder="Number of nights..."
-                type="number" onChange={e => setNights(e.target.value)}/>
+            <input 
+                placeholder="Number of nights..."
+                type="number" 
+                value={nights}
+                onChange={e => setNights(e.target.value)}/>
             <button type="submit" className="btn">Add</button>
         </form>
     )
