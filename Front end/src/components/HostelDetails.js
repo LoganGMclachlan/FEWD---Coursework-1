@@ -24,7 +24,7 @@ export default function HostelDetails({hostel}){
                 </div>
             </div>
             <div className="container">
-                <Map hostels={[hostel]}/>
+                <Map locations={[hostel.location]}/>
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import { MapContainer, TileLayer, Marker } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { useEffect, useState } from "react"
 import { RecenterAutomatically } from "../utils"
@@ -11,13 +11,13 @@ L.Icon.Default.mergeOptions({
     shadowUrl:require('leaflet/dist/images/marker-shadow.png'),
 })
 
-export default function Map({hostels}){
+export default function Map({locations, height}){
     const [position,setPosition] = useState(
-        [hostels[0].location.lat,hostels[0].location.long]
+        [locations[0].lat,locations[0].long]
     )
     useEffect(() => {
-        setPosition([hostels[0].location.lat,hostels[0].location.long])
-    }, [hostels])
+        setPosition([locations[0].lat,locations[0].long])
+    }, [locations])
 
     const icon = new Icon({
         iconUrl: "/markerIcon.svg",
@@ -25,29 +25,25 @@ export default function Map({hostels}){
     })
 
     return(
-        <MapContainer center={position} zoom={8}
-        scrollWheelZoom={true} className="map">
+        <MapContainer center={position} zoom={7}
+        scrollWheelZoom={true} className="map" style={{"height":height}}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"          
             />
 
-            {hostels.map(hostel =>
+            {locations.map(location =>
                 <Marker
-                    key={hostel.id}
                     position={[
-                        hostel.location.lat,
-                        hostel.location.long
+                        location.lat,
+                        location.long
                     ]}
                     icon={icon}
                 >
-                    <Popup>
-                        {hostel.name}
-                    </Popup>
                 </Marker>
             )}
             
-            <RecenterAutomatically lat={hostels[0].location.lat} long={hostels[0].location.long} />
+            <RecenterAutomatically lat={locations[0].lat} long={locations[0].long} />
         </MapContainer>
     )
 }
