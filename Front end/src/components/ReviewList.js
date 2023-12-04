@@ -3,8 +3,8 @@
 export default function ReviewList({reviews}){
 
     return(
-        <div className="container">
-            <h2>Reviews</h2>
+        <div className="container" style={{"borderBottom":"none"}}>
+            <h2>Hostel Reviews</h2>
             <div className="review-list">
             {reviews.map(review => 
                 <div className="review">

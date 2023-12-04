@@ -45,9 +45,8 @@ export default function NewReview({selected}){
     }
 
     return(
-        <form className="container review" onSubmit={e => HandleAddReview(e)}>
-            <h2>Create Review</h2>
-
+        <form className="container review" onSubmit={e => HandleAddReview(e)}
+            >
             <label>Author:</label>
             <input
                 className="review-input"
