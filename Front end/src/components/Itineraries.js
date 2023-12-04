@@ -19,7 +19,7 @@ export default function Itineraries(){
 
     return(
         <div className="main">
-            <EditItinerary itinerary={currentItinerary}/>
+            <EditItinerary itinerary={currentItinerary} setItinerary={setCurrentItinerary}/>
             <div className="container" style={{"width":"40%"}}>
                 {route.length > 0 && <Map locations={route} height="510px"/>}
             </div>
