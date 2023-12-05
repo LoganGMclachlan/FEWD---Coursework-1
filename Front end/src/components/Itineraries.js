@@ -7,8 +7,16 @@ import { parseCoordinates } from "../utils"
 
 export default function Itineraries(){
     const {currentItinerary, setCurrentItinerary} = useContext(ItineraryContext)
-    const [itineraryList, setItineraryList] = useState([])
     const [route,setRoute] = useState([{"lat":55.86639,"long":-4.24919}])
+
+    const [itineraryList, setItineraryList] = useState(() => {// gets data from local storage
+        const localValue = localStorage.getItem("ITINERARY_LIST")
+        if (localValue === null) return []
+        return JSON.parse(localValue)
+    })
+    useEffect(() => {// saves changes made to itinerary list
+        localStorage.setItem("ITINERARY_LIST", JSON.stringify(itineraryList))
+    }, [itineraryList])
 
     useEffect(() => {
         setRoute(parseCoordinates(currentItinerary))

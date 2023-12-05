@@ -1,5 +1,5 @@
 import arrow from "../assets/down-arrow.jpg"
-import { getTodaysDate } from "../utils"
+import { getIdForList, getTodaysDate } from "../utils"
 
 export default function EditItinerary({itinerary,setItinerary,setItineraryList,itineraryList}){
 
@@ -29,6 +29,7 @@ export default function EditItinerary({itinerary,setItinerary,setItineraryList,i
         }
 
         let appended = [...itineraryList]
+        itinerary.id = getIdForList(appended)
         appended.push(itinerary)
         setItineraryList(appended)
         setItinerary({

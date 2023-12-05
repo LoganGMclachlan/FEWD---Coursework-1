@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { ItineraryContext } from "./ItineraryContext"
+import { getIdForList } from "../utils"
 
 
 export default function AddToItinerary({hostel}){
@@ -15,7 +16,7 @@ export default function AddToItinerary({hostel}){
         let temp = {...currentItinerary}
         const shortHostel = {"id":hostel.id,"name":hostel.name,
             "location":[hostel.location.lat,hostel.location.long]}
-        temp.hostels.push({"id":temp.hostels.length,"hostel":shortHostel,"NumOfNights":Number(nights)})
+        temp.hostels.push({"id":getIdForList(temp.hostels),"hostel":shortHostel,"NumOfNights":Number(nights)})
         setCurrentItinerary(temp)
         setNights("")
         e.preventDefault()

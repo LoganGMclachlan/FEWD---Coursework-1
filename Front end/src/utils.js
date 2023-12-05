@@ -29,7 +29,7 @@ export function getTodaysDate(){
     return `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`
 }
 
-export const parseCoordinates = (itinerary) => {
+export const parseCoordinates = itinerary => {
     if(itinerary.hostels.length > 0){
         // gets list of coordinates to plot map whenever the selected itinerary changes
         let locations = []
@@ -39,4 +39,10 @@ export const parseCoordinates = (itinerary) => {
         return locations
     }
     return [{"lat":55.86639,"long":-4.24919}]// default marker placed on Glasgow
+}
+
+// takes in a list to return an id for a new item for it
+export const getIdForList = list => {
+    if (list.length < 1){ return 0 }// if list is empty start id at 0
+    return list[list.length - 1].id + 1// find id of last item then add 1 for new id
 }
