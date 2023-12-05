@@ -19,14 +19,16 @@ export default function ItineraryList({itineraryList,setItineraryList,setItinera
     return(
         <div className="container" style={{"width":"30%"}}>
             <h2>Saved Itineraries</h2>
-            {itineraryList.map(itinerary => 
-                <div key={itinerary.id}>
-                    <h3 onClick={e => handleSelect(e,itinerary)}>{itinerary.title}</h3>
-                    <label>{itinerary.start_date}</label>
-                    <button className="stage-btn" onClick={e => deleteItinerary(e,itinerary)}
-                        >Delete</button>
-                </div>
-            )}
+            <div className="scrollable" style={{"height":"450px"}}>
+                {itineraryList.map(itinerary => 
+                    <div key={itinerary.id} className="list-item">
+                        <h2 onClick={e => handleSelect(e,itinerary)}>{itinerary.title}</h2>
+                        <label>{itinerary.start_date}</label>
+                        <button className="stage-btn" onClick={e => deleteItinerary(e,itinerary)}
+                            >Delete</button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

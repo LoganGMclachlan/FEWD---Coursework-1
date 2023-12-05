@@ -10,11 +10,11 @@ export default function HostelList({hostels, selectHostel}){
         
         <Search hostels={hostels} setFilterd={setFiltered}/>
 
-        <div className="scrollable">
+        <div className="scrollable" style={{"height":"410px"}}>
             {filtered.map(hostel => 
-                <button onClick={() => selectHostel(hostel)} key={hostel.id} className="list-item">
+                <div onClick={() => selectHostel(hostel)} key={hostel.id}>
                     <HostelSnippet hostel={hostel}/>
-                </button>
+                </div>
             )}
         </div>
     </div>

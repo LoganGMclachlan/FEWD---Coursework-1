@@ -58,7 +58,6 @@ body {
 .scrollable{
   overflow: scroll;
   overflow-x: hidden;
-  height: 410px;
 }
 
 .search-bar{
@@ -89,6 +88,16 @@ body {
   border:none;
   width:100%;
   text-align: left;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.list-item h2{
+  font-size: 1.3em;
+}
+.list-item h2:hover{
+  font-size: 1.5em;
+  text-decoration: underline;
 }
 
 .review-list{

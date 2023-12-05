@@ -52,7 +52,7 @@ export default function EditItinerary({itinerary,setItinerary,setItineraryList,i
                 {itinerary.hostels.map(stop => 
                     <div key={stop.id}>
                         <img src={arrow} className="arrow"/>
-                        <h3 style={{"marginBottom":"5px"}}>{stop.hostel.name}</h3>
+                        <h3 style={{"marginBottom":"5px","width":"70%"}}>{stop.hostel.name}</h3>
                         {stop.NumOfNights} nights
                         <button className="stage-btn" onClick={e => removeStop(e,stop)}
                             >Remove Hostel</button>
