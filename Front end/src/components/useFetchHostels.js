@@ -24,7 +24,6 @@ const useFetchHostels = () => {
             .then((data) => {
                 setHostels(data)
                 setStatus('fetched')
-                console.log(data)
             })
             .catch((err) => console.error(err))
     }, [])

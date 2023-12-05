@@ -22,3 +22,21 @@ export const RecenterAutomatically = ({lat,long}) => {
 
     return null
 }
+
+// return todays date as a string in format dd/mm/yyyy
+export function getTodaysDate(){
+    let today = new Date()
+    return `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`
+}
+
+export const parseCoordinates = (itinerary) => {
+    if(itinerary.hostels.length > 0){
+        // gets list of coordinates to plot map whenever the selected itinerary changes
+        let locations = []
+        itinerary.hostels.map(stop => {
+            locations.push({"lat":stop.hostel.location[0],"long":stop.hostel.location[1]})
+        })
+        return locations
+    }
+    return [{"lat":55.86639,"long":-4.24919}]// default marker placed on Glasgow
+}
