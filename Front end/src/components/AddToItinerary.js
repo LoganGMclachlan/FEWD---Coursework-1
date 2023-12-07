@@ -8,6 +8,7 @@ export default function AddToItinerary({hostel}){
     const {currentItinerary, setCurrentItinerary} = useContext(ItineraryContext)
 
     function AddHostel(e){
+        e.preventDefault()
         if (nights < 1 || nights === ""){
             alert("Enter a number of nights of 1 or above")
             return
@@ -19,7 +20,6 @@ export default function AddToItinerary({hostel}){
         temp.hostels.push({"id":getIdForList(temp.hostels),"hostel":shortHostel,"NumOfNights":Number(nights)})
         setCurrentItinerary(temp)
         setNights("")
-        e.preventDefault()
     }
 
     return(

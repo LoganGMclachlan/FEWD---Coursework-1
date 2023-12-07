@@ -12,16 +12,15 @@ export default function ItineraryList({itineraryList,setItineraryList,setItinera
     function deleteItinerary(e,itinerary){
         e.preventDefault()
         if(!window.confirm(`Are you sure you want to delete the ${itinerary.title} itinerary?`)){ return }
-
         setItineraryList(itineraryList.filter(i => i.id !== itinerary.id))
     }
 
     return(
         <div className="container" style={{"width":"30%"}}>
             <h2>Saved Itineraries</h2>
-            <div className="scrollable" style={{"height":"450px"}}>
+            <div className="scrollable" style={{"height":"460px"}}>
                 {itineraryList.map(itinerary => 
-                    <div key={itinerary.id} className="list-item">
+                    <div key={itinerary.id} className="list-item" onClick={e => handleSelect(e,itinerary)}>
                         <h2 onClick={e => handleSelect(e,itinerary)}>{itinerary.title}</h2>
                         <label>{itinerary.start_date}</label>
                         <button className="stage-btn" onClick={e => deleteItinerary(e,itinerary)}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import Itineraries from "./components/Itineraries"
 import Hostels from "./components/Hostels"
@@ -7,11 +7,19 @@ import { getTodaysDate } from "./utils"
 
 function App() {
   const [tabSelected, setTabSelected] = useState("Hostels")// determines what tab to display
-  const [currentItinerary, setCurrentItinerary] = useState({
-    "title":"New Itinerary",
-    "start_date":getTodaysDate(),
-    "hostels":[]// will contain hostel title, location & No. of nights
+
+  const [currentItinerary, setCurrentItinerary] = useState(() => {// gets data from local storage
+    const localValue = localStorage.getItem("ITINERARY")
+    if (localValue === null) return {
+        "title":"New Itinerary",
+        "start_date":getTodaysDate(),
+        "hostels":[]// will contain hostel title, location & No. of nights
+      }
+    return JSON.parse(localValue)
   })
+  useEffect(() => {// saves changes made to itinerary list
+      localStorage.setItem("ITINERARY", JSON.stringify(currentItinerary))
+  }, [currentItinerary])
 
   return (
     <body>
