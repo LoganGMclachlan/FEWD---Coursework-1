@@ -6,11 +6,11 @@ export default function HostelList({hostels, selectHostel}){
     const [filtered,setFiltered] = useState(hostels)
 
     return(
-    <div style={{"width":"25%","height":"490px"}} className="container">
+    <div style={{"width":"25%","height":"480px"}} className="container">
         
         <Search hostels={hostels} setFilterd={setFiltered}/>
 
-        <div className="scrollable" style={{"height":"410px"}}>
+        <div className="scrollable" style={{"height":"400px"}}>
             {filtered.map(hostel => 
                 <div onClick={() => selectHostel(hostel)} key={hostel.id}>
                     <HostelSnippet hostel={hostel}/>

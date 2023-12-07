@@ -18,7 +18,7 @@ export default function ItineraryList({itineraryList,setItineraryList,setItinera
     return(
         <div className="container" style={{"width":"30%"}}>
             <h2>Saved Itineraries</h2>
-            <div className="scrollable" style={{"height":"460px"}}>
+            <div className="scrollable" style={{"height":"450px"}}>
                 {itineraryList.map(itinerary => 
                     <div key={itinerary.id} className="list-item" onClick={e => handleSelect(e,itinerary)}>
                         <h2 onClick={e => handleSelect(e,itinerary)}>{itinerary.title}</h2>

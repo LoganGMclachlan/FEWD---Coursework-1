@@ -48,7 +48,7 @@ export default function EditItinerary({itinerary,setItinerary,setItineraryList,i
                 className="itinerary-title"/><br/>
             Start Date: {itinerary.start_date}
             
-            <div className="scrollable" style={{"height":"410px"}}>
+            <div className="scrollable" style={{"height":"400px"}}>
                 {itinerary.hostels.map(stop => 
                     <div key={stop.id}>
                         <img src={arrow} className="arrow"/>
