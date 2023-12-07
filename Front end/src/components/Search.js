@@ -47,11 +47,13 @@ export default function Search({hostels,setFilterd}){
             />
             <div className="filters">
                 <label>Has Cafe?:</label>
-                <input
-                    type="checkbox"
-                    checked={hasCafe}
-                    onChange={() => setHasCafe(!hasCafe)}
-                />
+                <div onClick={() => setHasCafe(!hasCafe)} className="checkbox-box">
+                    <input
+                        type="checkbox"
+                        className="checkbox"
+                        checked={hasCafe}
+                    />
+                </div>
                 <label style={{"marginLeft":"15px"}}>Rating:</label>
                 <input
                     type="number"

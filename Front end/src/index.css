@@ -96,9 +96,31 @@ body {
   font-size: 1.3em;
 }
 .list-item h2:hover{
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-decoration: underline;
 }
+
+.checkbox{
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-bottom: -2px;
+}
+.checkbox:checked {
+  box-shadow: inset 1em 1em lightblue;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.checkbox-box{
+  display: inline;
+  border: 1px solid black;
+  width: 25px;  
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 
 .review-list{
   overflow-y: scroll;
@@ -142,6 +164,9 @@ body {
   width:10%;
   margin-left: 5px;
   margin-right: 5px;
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 5px;
 }
 
 .btn{
