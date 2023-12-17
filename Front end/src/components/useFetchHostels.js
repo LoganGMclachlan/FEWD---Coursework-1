@@ -19,7 +19,7 @@ const useFetchHostels = () => {
     }]);
 
     const fetchData = useCallback(() => {
-        fetch("http://localhost:3001/hostels")
+        fetch("https://fewd-backend.adaptable.app/hostels")
             .then((res) => res.json())
             .then((data) => {
                 setHostels(data)

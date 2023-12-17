@@ -33,7 +33,7 @@ export default function NewReview({selected}){
 
     // adds new review to db, including the new rating
     async function CreateReview(review,rating){
-        await fetch(`http://localhost:3001/newReview`,{
+        await fetch(`https://fewd-backend.adaptable.app/newReview`,{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({"review":review,"rating":rating,"target":selected.id})
