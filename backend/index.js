@@ -7,6 +7,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
+const port = process.env.PORT || 3000;
 let hostels = []
 
 function getHostels(){
@@ -49,6 +50,6 @@ app.post('/newReview', (req,res) => {
     catch(err){ console.error(err) }
 })
 
-app.listen(3001, () => {
-    console.log("listening on port: 3001\nhttp://localhost:3001/hostels")
+app.listen(port, () => {
+    console.log(`listening at http://localhost:${port}/hostels`)
 })
