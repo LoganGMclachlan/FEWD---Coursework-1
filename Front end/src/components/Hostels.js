@@ -22,9 +22,8 @@ export default function Hostels(){
 
                 <HostelDetails hostel={selectedHostel}/>
 
-                <HostelReviews
-                    reviews={selectedHostel.reviews}
-                    selected={selectedHostel}/>
+                <HostelReviews reviews={selectedHostel.reviews}
+                    selected={selectedHostel} setSelected={setSelectedHostel}/>
             </>
 
             :<div className="container">

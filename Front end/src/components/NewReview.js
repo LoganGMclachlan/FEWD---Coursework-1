@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function NewReview({selected}){
+export default function NewReview({selected, setSelected}){
     const [author,setAuthor] = useState("")
     const [review,setReview] = useState("")
     const [rating,setRating] = useState("")
@@ -14,11 +14,7 @@ export default function NewReview({selected}){
     function HandleAddReview(e){
         e.preventDefault()
         let reviewer = ""
-        if(author === ""){ 
-            reviewer = "Anonymous"
-        }else{
-            reviewer = author
-        }
+        if(author === ""){ reviewer = "Anonymous" } else { reviewer = author}
         if(review === ""){
             alert("Please write your review before submiting.")
             return
@@ -39,9 +35,16 @@ export default function NewReview({selected}){
             body: JSON.stringify({"review":review,"rating":rating,"target":selected.id})
         })
         .then(
-            alert("Created your review successfuly! Refresh the page after a while to see it listed.")
+            alert("Created your review successfuly!"),
+            updateReviewList(review)
         )
         .catch(err => {console.log(err)})
+    }
+
+    function updateReviewList(review){
+        let temp = {...selected}
+        temp.reviews.push(review)
+        setSelected(temp)
     }
 
     return(
