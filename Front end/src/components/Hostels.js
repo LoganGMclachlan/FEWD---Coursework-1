@@ -14,22 +14,15 @@ export default function Hostels(){
 
     return(
         <div className="main">
-            {status === "fetched"
-            ?<>
-                <HostelList
-                    hostels={hostels}
-                    selectHostel={setSelectedHostel}/>
-
+            {status === "fetched" &&
+            <>
+                <HostelList hostels={hostels} selectHostel={setSelectedHostel}/>
                 <HostelDetails hostel={selectedHostel}/>
-
                 <HostelReviews reviews={selectedHostel.reviews}
                     selected={selectedHostel} setSelected={setSelectedHostel}/>
-            </>
-
-            :<div className="container">
-                <h2>There was a problem fetching the hostel data.</h2>
-            </div>
-            }
+            </>}
+            {status === "idle" && <h2>Fetching hostel data...</h2>}
+            {status === "failed" && <h2>There was a problem fetching the hostel data.</h2>}
         </div>
     )
 }

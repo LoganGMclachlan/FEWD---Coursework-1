@@ -20,12 +20,12 @@ const useFetchHostels = () => {
 
     const fetchData = useCallback(() => {
         fetch("https://fewd-backend.adaptable.app/hostels")
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
                 setHostels(data)
                 setStatus('fetched')
             })
-            .catch((err) => console.error(err))
+            .catch(err => {console.error(err); setStatus("failed")})
     }, [])
 
     useEffect(() => {
