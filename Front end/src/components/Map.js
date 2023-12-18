@@ -25,7 +25,7 @@ export default function Map({locations, height}){
     })
 
     return(
-        <MapContainer center={position} zoom={7}
+        <MapContainer center={position} zoom={7} keyboard={false}
         scrollWheelZoom={true} className="map" style={{"height":height}}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
