@@ -7,7 +7,7 @@ import { parseCoordinates } from "../utils"
 
 export default function Itineraries(){
     const {currentItinerary, setCurrentItinerary} = useContext(ItineraryContext)
-    const [route,setRoute] = useState([{"lat":55.86639,"long":-4.24919}])
+    const [route,setRoute] = useState(parseCoordinates(currentItinerary))
 
     const [itineraryList, setItineraryList] = useState(() => {// gets data from local storage
         const localValue = localStorage.getItem("ITINERARY_LIST")
@@ -27,7 +27,7 @@ export default function Itineraries(){
             <EditItinerary itinerary={currentItinerary} setItinerary={setCurrentItinerary}
                 itineraryList={itineraryList} setItineraryList={setItineraryList}/>
             <div className="container" style={{"width":"40%"}}>
-                {route.length > 0 && <Map locations={route} height="510px"/>}
+                <Map locations={route} height="510px"/>
             </div>
             <ItineraryList itineraryList={itineraryList} setItineraryList={setItineraryList}
                 setItinerary={setCurrentItinerary}/>

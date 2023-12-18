@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import { useEffect, useState } from "react"
 import { RecenterAutomatically } from "../utils"
@@ -39,7 +39,10 @@ export default function Map({locations, height}){
                         location.long
                     ]}
                     icon={icon}
+                    eventHandlers={{ mouseover: e => e.target.openPopup(),
+                            mouseout: e => e.target.closePopup() }}
                 >
+                <Popup>{location.hostel}</Popup>
                 </Marker>
             )}
             

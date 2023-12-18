@@ -34,11 +34,11 @@ export const parseCoordinates = itinerary => {
         // gets list of coordinates to plot map whenever the selected itinerary changes
         let locations = []
         itinerary.hostels.map(stop => {
-            locations.push({"lat":stop.hostel.location[0],"long":stop.hostel.location[1]})
+            locations.push({"lat":stop.hostel.location[0],"long":stop.hostel.location[1],"hostel":stop.hostel.name})
         })
         return locations
     }
-    return [{"lat":55.86639,"long":-4.24919}]// default marker placed on Glasgow
+    return [{"lat":55.86639,"long":-4.24919,"hostel":"Glasgow"}]// default marker placed on Glasgow
 }
 
 // takes in a list to return an id for a new item for it
