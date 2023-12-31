@@ -18,7 +18,7 @@ export default function Hostels(){
             <>
                 <HostelList hostels={hostels} selectHostel={setSelectedHostel}/>
                 <HostelDetails hostel={selectedHostel}/>
-                <HostelReviews reviews={selectedHostel?.reviews}
+                <HostelReviews reviews={selectedHostel.reviews}
                     selected={selectedHostel} setSelected={setSelectedHostel}/>
             </>}
             {status === "idle" && <h2>Fetching hostel data...</h2>}

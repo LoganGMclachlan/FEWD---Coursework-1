@@ -66,8 +66,7 @@ body {
 }
 
 .scrollable{
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow-y: scroll
 }
 
 .search-bar{
@@ -181,10 +180,10 @@ body {
 
 .btn{
   padding: 4px;
-  border:2px solid black;
+  border:1.5px solid black;
   border-radius: 5px;
   cursor: pointer;
-  background-color: whitesmoke;
+  background-color: lightblue;
   padding-left:15px;
   padding-right:15px
 }
